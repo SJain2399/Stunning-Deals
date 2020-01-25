@@ -1,0 +1,103 @@
+h2{
+    font-size:  7vh;
+}
+h4{
+    font-size: 3vh;
+}
+
+.navbar-transparent{
+    background-color: transparent;
+}
+.navbar-solid{
+    background-color: black;
+    opacity: .5;
+}
+#message{
+    display: none;
+}
+
+.car{
+height:500px;
+width:100%;
+}
+
+.valid {
+  color: green;
+}
+
+.invalid{
+    color:red;
+}
+
+.dropdown-menu{
+    background-color: #0275d8;
+}
+
+#deals{
+    /* background-color: #31E5D7; */
+}
+
+.deal-header{
+    padding:3%;
+}
+.top-deals{
+    /* background-color: #27F6E6; */
+    margin-left: 8%;
+    margin-right: 8%;
+    padding-bottom: 3%;
+    border-bottom: 1px solid #d6d6c2;
+}
+.deal-name{
+    /*border-bottom:2px solid black;*/
+}
+.explore-link{
+    margin-right: 0%;
+}
+
+.collapse-content .fa.fa-heart:hover {
+  color: #f44336 !important;
+}
+.collapse-content .fa.fa-share-alt:hover {
+  color: #0d47a1 !important;
+}
+
+.contact-section{
+    background-color: #000000;
+    padding:3%;
+    margin-top: 1%;
+}
+
+/* About CSS */
+.about p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size : 2vh;
+}
+
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("/w3images/mac.jpg");
+  min-height: 100%;
+}
+
+.w3-bar .w3-button {
+  padding: 16px;
+}
+.about img {
+	border-radius: 100%;
+}
+/* Media queries */
+
+@media (max-width: 768px) {
+    .car{
+        height:250px;
+        width:100%;
+    }
+    .card{
+        margin-bottom: 5%;
+    }
+    .top-deals{
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+}
