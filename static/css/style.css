@@ -10,7 +10,7 @@ h4{
 }
 .navbar-solid{
     background-color: black;
-    opacity: .5;
+    opacity: 0.5;
 }
 #message{
     display: none;
@@ -42,8 +42,8 @@ width:100%;
 }
 .top-deals{
     /* background-color: #27F6E6; */
-    margin-left: 8%;
-    margin-right: 8%;
+    margin-left: 5%;
+    margin-right: 5%;
     padding-bottom: 3%;
     border-bottom: 1px solid #d6d6c2;
 }
@@ -86,8 +86,16 @@ width:100%;
 .about img {
 	border-radius: 100%;
 }
+#top-deals-cards{
+    padding-top: 7%;
+}
+#singleCard{
+    margin-bottom:2%;
+}
 /* Media queries */
-
+#about{
+    padding-top: 7%;
+}
 @media (max-width: 768px) {
     .car{
         height:250px;

@@ -64,3 +64,4 @@ var upperCaseLetters = /[A-Z]/g;
     length.classList.add("invalid");
   }
 }
+
