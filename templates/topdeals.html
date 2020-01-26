@@ -181,6 +181,105 @@
                 </div>
             </div>
         </div>
+        <div id="contact" class="container-fluid contact-section">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card py-4 h-100">
+                <div class="card-body text-center">
+                  <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                  <h4 class="text-uppercase m-0">Feedback</h4>
+                  <hr class="my-4">
+                  <div class="small text-black-50"><strong><a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#feedbackform">We would like to hear what you feel.</a></strong></div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-md-4">
+              <div class="card py-4 h-100">
+                <div class="card-body text-center">
+                  <i class="fas fa-envelope text-primary mb-2"></i>
+                  <h4 class="text-uppercase m-0">Email</h4>
+                  <hr class="my-4">
+                  <div class="small text-black-50">
+                    <a href="#"><strong>stunningdeals@gmail.com</strong></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card py-4 h-100">
+                <div class="card-body text-center">
+                  <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                  <h4 class="text-uppercase m-0">Phone</h4>
+                  <hr class="my-4">
+                  <div class="small text-black-50"><i class="fa fa-phone"></i>  <strong>+919303228584</strong>
+                  <div class="small text-black-50"><strong>(0731) 4045809</strong></div>
+              </div>
+                </div>
+            </div>
+        </div>
+
+<div class="modal fade" id="feedbackform" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="border-left: 6px solid #586660;border-right: 6px solid #586660;">
+   <div class="modal-dialog" role="document" >
+       <div class="modal-content">
+           <div class="modal-header">
+               <div style="color: black" ><strong><h4 class="modal-title" id="exampleModalLabel">Write to Us</h4></strong></div>
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                   </button>
+           </div>
+           <div class="modal-body">
+               <form>
+                   <div class="form-group">
+                       <label for="recipient-name" class="col-form-label"> <i class="fas fa-user-plus"></i>  Your Name:</label>
+                       <input type="text" class="form-control" id="name">
+                   </div>
+                   <div class="form-group">
+                       <label for="message-text" class="col-form-label"><i class="fas fa-envelope"></i> Email:</label>
+                       <input type="Email" class="form-control" id="emailRegister">
+                   </div>
+                   <div class="form-group">
+                       <label for="message-text" class="col-form-label"><i class="fa fa-file" aria-hidden="true"></i> Subject:</label>
+                       <input type="Password" onkeyup="validateForm()" onfocus="showMessage()" onblur="hideMessage()" class="form-control" id="regPassword">
+                   </div>
+                   <div class="form-group">
+                       <label for="message-text" class="col-form-label"><i class="fa fa-envelope" aria-hidden="true"></i></i> Message:</label>
+                       <textarea placeholder="Write your feeback to Us..." class="form-control" rows="8" cols="80"></textarea>
+                   </div>
+               </form>
+               <div id="message">
+                   <h3>Password must contain the following:</h3>
+                   <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                   <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                   <p id="number" class="invalid">A <b>number</b></p>
+                   <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+               </div>
+           </div>
+           <div class="modal-footer">
+               <input type="submit" name="" value="Send Message" class="btn btn-lg btn-success">
+           </div>
+       </div>
+   </div>
+</div>
+<!--Social link-->
+
+          <div class="container" style="margin-top: 2%;">
+            <div class="d-flex justify-content-center">
+                <a href="#" class="mx-4">
+                    <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="mx-4">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="mx-4">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+    </div>
     </body>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
