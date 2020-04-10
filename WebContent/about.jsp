@@ -1,11 +1,13 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head lang=en>
         <title>About us</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="../static/css/style.css">
+        <link rel="stylesheet" href="/Stunning-Deals/style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -25,7 +27,7 @@
                 <div class="container">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="./../index.html">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-auto">
@@ -144,7 +146,7 @@
 <!-- Card content -->
 <div class="card promoting-card">
                 <div class="card-body d-flex flex-row">
-                    <img class="card-img-top rounded-50" src="../static/images/sj.jpeg">
+                    <img class="card-img-top rounded-50" src="images/team-images/sj.jpeg">
                 </div>
                 <div class="card-body">
                     <div class="collapse-content">
@@ -161,7 +163,7 @@
             <div class="card promoting-card">
 <!-- Card content -->
                 <div class="card-body d-flex flex-row">
-                    <img class="card-img-top rounded-0" src="../static/images/shivamb.jpg">
+                    <img class="card-img-top rounded-0" src="images/team-images/shivamb.jpg">
                 </div>
                 <div class="card-body">
                     <div class="collapse-content">
@@ -178,7 +180,7 @@
             <div class="card promoting-card">
 <!-- Card content -->
                 <div class="card-body d-flex flex-row">
-                    <img class="card-img-top rounded-0" src="../static/images/shivam.jpg">
+                    <img class="card-img-top rounded-0" src="images/team-images/shivam.jpg">
                 </div>
                 <div class="card-body">
                     <div class="collapse-content">
@@ -195,7 +197,7 @@
             <div class="card promoting-card">
 <!-- Card content -->
                 <div class="card-body d-flex flex-row">
-                    <img class="card-img-top rounded-0" src="../static/images/shivansh.jpg">
+                    <img class="card-img-top rounded-0" src="images/team-images/shivansh.jpg">
                 </div>
                 <div class="card-body">
                     <div class="collapse-content">

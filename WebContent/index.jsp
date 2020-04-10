@@ -1,11 +1,13 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head lang=en>
         <title>StunningDeals</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="static/css/style.css">
+        <link rel="stylesheet" href="/Stunning-Deals/style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -24,7 +26,7 @@
                 <div class="container">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#	">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
@@ -35,7 +37,7 @@
                             </div>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="templates/about.html">About Us <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="about.jsp">About Us <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="#contact">Contact<span class="sr-only">(current)</span></a>
@@ -63,20 +65,20 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form action="LoginServlet" method = "POST">
                             <div class="form-group">
                                 <label for="recipient-name" class="col-form-label"><i class="fas fa-envelope"></i> Email id:</label>
-                                <input type="email" class="form-control" id="email">
+                                <input type="email" class="form-control" name="email">
                             </div>
                             <div class="form-group">
                                 <label for="message-text" class="col-form-label"><i class="fas fa-key"></i> Password:</label>
-                                <input type="Password" class="form-control" id="loginPassword">
+                                <input type="Password" class="form-control" name="password">
                             </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Forgot Password?</button>
-                        <button type="button" class="btn btn-primary">Submit</button>
+                            <div class="modal-footer">
+	                        <input type="submit" value="Submit" class="btn btn-primary">
+                    	</div>
+                      </form>
+                        
                     </div>
                 </div>
             </div>
@@ -94,35 +96,28 @@
                             </button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form action="RegisterServlet" method = "POST">
                             <div class="form-group">
                                 <label for="recipient-name" class="col-form-label"> <i class="fas fa-user-plus"></i>  Your Name:</label>
-                                <input type="text" class="form-control" id="name">
+                                <input type="text" class="form-control" name="name">
                             </div>
                             <div class="form-group">
                                 <label for="message-text" class="col-form-label"><i class="fas fa-envelope"></i> Email:</label>
-                                <input type="Email" class="form-control" id="emailRegister">
+                                <input type="Email" class="form-control" name="email">
                             </div>
                             <div class="form-group">
                                 <label for="message-text" class="col-form-label"><i class="fas fa-key"></i> Password:</label>
-                                <input type="Password" onkeyup="validateForm()" onfocus="showMessage()" onblur="hideMessage()" class="form-control" id="regPassword">
+                                <input type="Password" onfocus="showMessage()" onblur="hideMessage()" class="form-control" name="password">
                             </div>
                             <div class="form-group">
                                 <label for="message-text" class="col-form-label"><i class="fas fa-key"></i> Confirm Password:</label>
-                                <input type="Password" class="form-control" id="regPassword">
-                            </div>
-                        </form>
-                        <div id="message">
-                            <h3>Password must contain the following:</h3>
-                            <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-                            <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-                            <p id="number" class="invalid">A <b>number</b></p>
-                            <p id="length" class="invalid">Minimum <b>8 characters</b></p>
-                        </div>
+                                <input type="Password" class="form-control" name="confirm_password">
+                            </div> 
                     </div>
                     <div class="modal-footer">
                         <input type="submit" name="" value="Register" class="btn btn-primary">
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -136,13 +131,13 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="car" src="static/images/first-slide.jpg" alt="First slide" >
+                    <img class="car" src="images/carousel-images/first-slide.jpg" alt="First slide" >
                 </div>
                 <div class="carousel-item">
-                    <img class="car" src="static/images/car2.jpg" alt="Second slide">
+                    <img class="car" src="images/carousel-images/second-slide.jpg" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="car" src="static/images/Ecommerce.jpg" alt="Third slide">
+                    <img class="car" src="images/carousel-images/third-slide.jpg" alt="Third slide">
                 </div>
                 </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -166,7 +161,7 @@
                     </div>
                     <div class="col-4 deal-name">
                         <center>
-                            <a class="explore-link" href="templates/topdeals.html">
+                            <a class="explore-link" href="topdeals.jsp">
                                 Explore More
                                 <i class="fas fa-angle-right"></i>
                             </a>
@@ -185,7 +180,7 @@
             <!-- Card content -->
                                     <div class="card-body d-flex flex-row">
             <!-- Avatar -->
-                                        <img src="static/images/whirlpool-logo.png" class="logo" height="50px" width="50px" alt="avatar">
+                                        <img src="images/logo-images/whirlpool-logo.png" class="logo" height="50px" width="50px" alt="avatar">
             <!-- Content -->
                                         <div>
             <!-- Title -->
@@ -238,7 +233,7 @@
                           <div class="card-body d-flex flex-row">
 
                             <!-- Avatar -->
-                            <img src="static/images/lg-logo.png"class="logo" height="50px" width="50px" alt="avatar">
+                            <img src="images/logo-images/lg-logo.png"class="logo" height="50px" width="50px" alt="avatar">
 
                             <!-- Content -->
                             <div>
@@ -358,7 +353,7 @@
                     </div>
                     <div class="col-4 deal-name">
                         <center>
-                            <a class="explore-link" href="templates/exhibitions.html">
+                            <a class="explore-link" href="exhibitions.jsp">
                                 Explore More
                                 <i class="fas fa-angle-right"></i>
                             </a>
@@ -377,7 +372,7 @@
             <!-- Card content -->
                                     <div class="card-body d-flex flex-row">
             <!-- Avatar -->
-                                        <img src="static/images/whirlpool-logo.png" class="logo" height="50px" width="50px" alt="avatar">
+                                        <img src="images/logo-images/whirlpool-logo.png" class="logo" height="50px" width="50px" alt="avatar">
             <!-- Content -->
                                         <div>
             <!-- Title -->
@@ -430,7 +425,7 @@
                           <div class="card-body d-flex flex-row">
 
                             <!-- Avatar -->
-                            <img src="static/images/lg-logo.png"class="logo" height="50px" width="50px" alt="avatar">
+                            <img src="images/logo-images/lg-logo.png"class="logo" height="50px" width="50px" alt="avatar">
 
                             <!-- Content -->
                             <div>

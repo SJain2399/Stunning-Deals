@@ -1,17 +1,19 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head lang=en>
-        <title>TopDeals</title>
+        <title>Home</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="../static/css/style.css">
+        <link rel="stylesheet" href="/Stunning-Deals/style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-		<link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
         <!-- <link rel="stylesheet" href="/home/user/Desktop/web engineering/static/css/style.css"> -->
+		<link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <script src="../static/script/form.js"></script>
         <script src="../static/script/topdeals.js"></script>
@@ -26,7 +28,7 @@
                 <div class="container">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="./../index.html">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
@@ -37,7 +39,7 @@
                             </div>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="about.html">About Us <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="about.jsp">About Us <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="#contact">Contact<span class="sr-only">(current)</span></a>
