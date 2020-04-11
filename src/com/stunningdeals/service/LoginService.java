@@ -24,8 +24,8 @@ public class LoginService {
 			ps.setString(2, password);
 			ps.executeQuery();
 			ResultSet rs =ps.executeQuery();
+			System.out.println(rs);
             st = rs.next();
-            System.out.println(st);
             System.out.print(email + " " + password);
 		}
 		catch(Exception e){
@@ -34,4 +34,23 @@ public class LoginService {
 		return st;
 	}
 
+	public static String getUserName(String email){
+		String name = null;
+		try{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection(url, uname, pass);
+			String query = " select * from User where email=?";
+			PreparedStatement ps = con.prepareStatement(query);
+			ps.setString(1, email);
+			ps.executeQuery();
+			ResultSet rs =ps.executeQuery();
+            rs.next();
+            name = rs.getString("name");
+            System.out.print(name);
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return name;
+	}
 }

@@ -45,12 +45,15 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		try{
 			
-			if(new LoginService().verifyLogin(email, password)){
+			LoginService loginService = new LoginService();
+			if(loginService.verifyLogin(email, password)){
 				
 				HttpSession session=request.getSession();
-				String name = request.getParameter("name");
-		        session.setAttribute("name", name);  
-			    
+				String name = loginService.getUserName(email);
+				
+		        session.setAttribute("name", name); 
+		        session.setAttribute("email", email);
+		        session.setAttribute("loggedIn", true);
 				RequestDispatcher rd=request.getRequestDispatcher("login-successful.jsp");
 				rd.forward(request, response); 
 			}

@@ -25,5 +25,12 @@
     <servlet-name>logout</servlet-name>
     <url-pattern>/LogoutServlet</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+  	<servlet-name>add_offer</servlet-name>
+  	<servlet-class>com.stunningdeals.controller.AddOfferServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>add_offer</servlet-name>
+    <url-pattern>/AddOfferServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
