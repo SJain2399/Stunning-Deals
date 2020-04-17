@@ -142,4 +142,7 @@ h4{
 .search-container button:hover {
   background: #ccc;
 }
-
+.welcomeBody{
+	margin-top:30%;
+	padding-top:15%;
+}

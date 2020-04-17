@@ -26,11 +26,19 @@
     <url-pattern>/LogoutServlet</url-pattern>
   </servlet-mapping>
   <servlet>
-  	<servlet-name>add_offer</servlet-name>
-  	<servlet-class>com.stunningdeals.controller.AddOfferServlet</servlet-class>
+    <servlet-name>add_offer</servlet-name>
+    <servlet-class>com.stunningdeals.controller.AddOfferServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>add_offer</servlet-name>
     <url-pattern>/AddOfferServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>my_deals</servlet-name>
+    <servlet-class>com.stunningdeals.controller.MyDealsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>my_deals</servlet-name>
+    <url-pattern>/MyDealsServlet</url-pattern>
   </servlet-mapping>
 </web-app>

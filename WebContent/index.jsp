@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head lang=en>
@@ -14,7 +15,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 		<link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-        <script src="static/script/form.js"></script>
+        <script src="script.js"></script>
     </head>
     <body>
         <nav id = "nav12" class="navbar navbar-transparent navbar-expand-lg navbar-dark fixed-top">
@@ -43,12 +44,22 @@
                             <a class="nav-link" href="#contact">Contact<span class="sr-only">(current)</span></a>
                         </li>
                     </ul>
+                    <% if ((Boolean)session.getAttribute("loggedIn") == null) { %>
                     <ul class="navbar-nav ml-auto">
                         <span>
                             <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#loginModal" data-whatever="@mdo">Login</button>
                             <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#registerModal" data-whatever="@mdo">Register</button>
                         </span>
                     </ul>
+                    <% } else { %>
+                    <% if ((Boolean)session.getAttribute("loggedIn") == true) { %>
+                    <ul class="navbar-nav ml-auto">
+                    	<li class="nav-item active">
+                        	<a class="nav-link" href="LogoutServlet">Logout</a> 
+                        </li>
+                    </ul>
+                    <% } %>
+                    <% } %>
                 </div>
             </div>
         </nav>
@@ -78,7 +89,9 @@
 	                        <input type="submit" value="Submit" class="btn btn-primary">
                     	</div>
                       </form>
-                        
+                       <!--  <% if ((Boolean)session.getAttribute("loggedIn") != null){ %>
+                        window.alert("incorrect credentials");
+                       	<%}%> -->
                     </div>
                 </div>
             </div>
@@ -95,8 +108,8 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                     </div>
-                    <div class="modal-body">
-                        <form action="RegisterServlet" method = "POST">
+                    <form action="RegisterServlet" method = "POST">
+                    	<div class="modal-body">
                             <div class="form-group">
                                 <label for="recipient-name" class="col-form-label"> <i class="fas fa-user-plus"></i>  Your Name:</label>
                                 <input type="text" class="form-control" name="name">
@@ -107,17 +120,24 @@
                             </div>
                             <div class="form-group">
                                 <label for="message-text" class="col-form-label"><i class="fas fa-key"></i> Password:</label>
-                                <input type="Password" onfocus="showMessage()" onblur="hideMessage()" class="form-control" name="password">
+                                <input type="Password" onkeyup="validateForm()" onfocus="showMessage()" onblur="hideMessage()" class="form-control" name="password" id="password">
                             </div>
                             <div class="form-group">
                                 <label for="message-text" class="col-form-label"><i class="fas fa-key"></i> Confirm Password:</label>
                                 <input type="Password" class="form-control" name="confirm_password">
                             </div> 
-                    </div>
-                    <div class="modal-footer">
-                        <input type="submit" name="" value="Register" class="btn btn-primary">
-                    </div>
+                        </div>
+	                    <div class="modal-footer">
+	                        <input type="submit" name="" value="Register" class="btn btn-primary">
+	                    </div>
                     </form>
+                    <div id="message">
+                        <h3>Password must contain the following:</h3>
+                        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                        <p id="number" class="invalid">A <b>number</b></p>
+                        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                    </div>
                 </div>
             </div>
         </div>

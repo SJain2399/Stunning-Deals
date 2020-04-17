@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.stunningdeals.models.User;
-import com.stunningdeals.service.RegistrationService;
+import com.stunningdeals.service.UserService;
 
 /**
  * Servlet implementation class RegisterServlet
@@ -52,8 +52,8 @@ public class RegisterServlet extends HttpServlet {
 		User user = new User(name, email, password);
 		System.out.print(user);
 		try{
-			new RegistrationService().register(user);
-			RequestDispatcher rd=request.getRequestDispatcher("registration-successful.jsp");
+			new UserService().register(user);
+			RequestDispatcher rd=request.getRequestDispatcher("login-successful.jsp");
 			request.setAttribute(name, name);
 			rd.forward(request, response); 
 		}

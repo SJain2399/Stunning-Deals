@@ -11,54 +11,43 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.stunningdeals.models.User;
-import com.stunningdeals.service.LoginService;
-import com.stunningdeals.service.RegistrationService;
+import com.stunningdeals.service.UserService;
 
 /**
  * Servlet implementation class LoginServlet
  */
 public class LoginServlet extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public LoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		try{
-			
-			LoginService loginService = new LoginService();
-			if(loginService.verifyLogin(email, password)){
-				
-				HttpSession session=request.getSession();
-				String name = loginService.getUserName(email);
+			HttpSession session=request.getSession();
+			UserService userService = new UserService();
+			if(userService.verifyLogin(email, password)){
+				String name = userService.getUserName(email);
 				
 		        session.setAttribute("name", name); 
 		        session.setAttribute("email", email);
 		        session.setAttribute("loggedIn", true);
-				RequestDispatcher rd=request.getRequestDispatcher("login-successful.jsp");
-				rd.forward(request, response); 
+		        RequestDispatcher rd = getServletContext().getRequestDispatcher("/MyDealsServlet");
+		        rd.forward(request, response); 
 			}
 			else{
-				RequestDispatcher rd=request.getRequestDispatcher("login-unsuccessful.jsp");
+				//session.setAttribute("loggedIn", false);
+				session.invalidate();
+				RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
 				rd.forward(request, response);
 			}
 		}
