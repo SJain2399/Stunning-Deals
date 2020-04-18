@@ -38,7 +38,7 @@ public class MyDealsServlet extends HttpServlet {
 			String email = (String) session.getAttribute("email");
     		UserService userService = new UserService();
     		ArrayList<Offer> offers = userService.getMyOffers(email);
-    		request.setAttribute("offers", offers);
+    		session.setAttribute("offers", offers);
     		System.out.println(offers.size());
     		RequestDispatcher rd=request.getRequestDispatcher("login-successful.jsp");
 			rd.forward(request, response); 

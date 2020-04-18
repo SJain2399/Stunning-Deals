@@ -12,15 +12,12 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-        <!-- <link rel="stylesheet" href="/home/user/Desktop/web engineering/static/css/style.css"> -->
 		<link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-        <script src="../static/script/form.js"></script>
-        <script src="../static/script/topdeals.js"></script>
     </head>
-    <body onload="createTopDeals()">
-        <nav id = "nav12" class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top">
-            <strong><a class="navbar-brand" href="./../index.html" style="font-family: 'Rajdhani', sans-serif; font-size: 30px;">StunningDE@LS</a></strong>
+    <body>
+        <nav id = "nav12" class="navbar navbar-transparent navbar-expand-lg navbar-dark fixed-top">
+            <strong><a class="navbar-brand" href="#" style="font-family: 'Rajdhani', sans-serif; font-size: 30px;">StunningDE@LS</a></strong>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -45,12 +42,22 @@
                             <a class="nav-link" href="#contact">Contact<span class="sr-only">(current)</span></a>
                         </li>
                     </ul>
+                    <% if ((Boolean)session.getAttribute("loggedIn") == null) { %>
                     <ul class="navbar-nav ml-auto">
                         <span>
                             <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#loginModal" data-whatever="@mdo">Login</button>
                             <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#registerModal" data-whatever="@mdo">Register</button>
                         </span>
                     </ul>
+                    <% } else { %>
+                    <% if ((Boolean)session.getAttribute("loggedIn") == true) { %>
+                    <ul class="navbar-nav ml-auto">
+                    	<li class="nav-item active">
+                        	<a class="nav-link" href="LogoutServlet">Logout</a> 
+                        </li>
+                    </ul>
+                    <% } %>
+                    <% } %>
                 </div>
             </div>
         </nav>

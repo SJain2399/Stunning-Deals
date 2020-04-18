@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="java.util.List"%>
+<%@page import="com.stunningdeals.models.Offer"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <html>
@@ -14,14 +16,11 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 		<link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
-        <!-- <link rel="stylesheet" href="/home/user/Desktop/web engineering/static/css/style.css"> -->
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-        <script src="../static/script/form.js"></script>
-        <script src="../static/script/topdeals.js"></script>
     </head>
-    <body onload="createTopDeals()">
-        <nav id = "nav12" class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top">
-            <strong><a class="navbar-brand" href="./../index.html" style="font-family: 'Rajdhani', sans-serif; font-size: 30px;">StunningDE@LS</a></strong>
+    <body>
+        <nav id = "nav12" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <strong><a class="navbar-brand" href="#" style="font-family: 'Rajdhani', sans-serif; font-size: 30px;">StunningDE@LS</a></strong>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -29,7 +28,7 @@
                 <div class="container">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="./../index.html">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
@@ -40,18 +39,28 @@
                             </div>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="about.html">About Us <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="about.jsp">About Us <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="#contact">Contact<span class="sr-only">(current)</span></a>
                         </li>
                     </ul>
+                    <% if ((Boolean)session.getAttribute("loggedIn") == null) { %>
                     <ul class="navbar-nav ml-auto">
                         <span>
                             <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#loginModal" data-whatever="@mdo">Login</button>
                             <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#registerModal" data-whatever="@mdo">Register</button>
                         </span>
                     </ul>
+                    <% } else { %>
+                    <% if ((Boolean)session.getAttribute("loggedIn") == true) { %>
+                    <ul class="navbar-nav ml-auto">
+                    	<li class="nav-item active">
+                        	<a class="nav-link" href="LogoutServlet">Logout</a> 
+                        </li>
+                    </ul>
+                    <% } %>
+                    <% } %>
                 </div>
             </div>
         </nav>
@@ -131,59 +140,75 @@
                 </div>
             </div>
         </div>
-<!-- card -->
-        <div class = "container-fluid" >
-            <div class="row"  id = "top-deals-cards">
-                <div class = "col-lg-4 col-md-6 col-xs-12" id = "singleCard">
-                    <div class = "row">
-                        <div class = "col-1">
-                        </div>
-                        <div class = "col-10">
-                            <div class="card promoting-card">
-        <!-- Card content -->
-                                <div class="card-body d-flex flex-row">
-        <!-- Avatar -->
-                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg" class="rounded-circle mr-3" height="50px" width="50px" alt="avatar">
-        <!-- Content -->
-                                    <div>
-        <!-- Title -->
-                                        <h4 class="card-title font-weight-bold mb-2">New spicy meals</h4>
-        <!-- Subtitle -->
-                                        <p class="card-text"><i class="far fa-clock pr-2"></i>07/24/2018</p>
+ <% if((Boolean)session.getAttribute("offers") == null){ %>
+            <div class="container-fluid welcomeContainer">
+				<div class="jumbotron  welcomeBody">
+					<h1> Welcome to StunningDeals....</h1>
+					<br>
+					<h3>Enjoy Great Deals On Electronics, Furniture And Many More Things</h3>
+				</div>
+			</div>
+        <%} %>
+<!--My Deals -->
+
+	<% 
+		if (request.getAttribute("offers") != null) {
+		List<Offer> myDeals =  (List< Offer>) request.getAttribute("offers"); 
+	%>
+	
+        <div class = "container-fluid" id = "deals">
+<!-- Card -->        	            
+            <div class="row ">
+           		<% for(Offer deal: myDeals) {%>
+                    <div class = "col-lg-4 col-md-6 col-xs-12">
+                        <div class = "row">
+                            <div class = "col-1">
+                            </div>
+                            <div class = "col-10">
+                                <div class="card promoting-card">
+            <!-- Card content -->
+                                    <div class="card-body d-flex flex-row">
+            <!-- Avatar -->
+                                        <img src="data:image/jpg;base64, <%= deal.getCompanyLogo()%>" class="logo" height="50px" width="50px" alt="avatar">
+            <!-- Content -->
+                                        <div>
+            <!-- Title -->
+                                            <h4 class="card-title font-weight-bold mb-2"><%= deal.getOfferName()%></h4>
+            <!-- Subtitle -->
+                                            <small><strong><p class="card-text"><i class="far fa-clock pr-2"></i><%= deal.getOfferValidFrom()%> - <%= deal.getOfferValidTo()%></p></strong></small>
+                                        </div>
+                                  </div>
+            <!-- Card image -->
+                                  <div class="view overlay">
+                                      <img class="card-img-top rounded-0" src="data:image/jpg;base64, <%= deal.getOfferBanner()%>" alt="Card image cap">
+                                      <a href="#!">
+                                          <div class="mask rgba-white-slight"></div>
+                                      </a>
+                                  </div>
+            <!-- Card content -->
+                                <div class="card-body">
+                                    <div class="collapse-content">
+            <!-- Text -->
+                                      <p class="" id="collapseContent"><%= deal.getOfferSummary()%></p><hr>
+            <!-- Button -->			  <i class="fa fa-tags"><%= deal.getOffer()%></i>
+                                      <a class="btn btn-flat red-text p-1 my-1 mr-0 mml-1 collapsed" data-toggle="collapse" href="#collapseContent" aria-expanded="false" aria-controls="collapseContent"></a>
+                                      <i class="fas fa-share-alt text-muted float-right p-1 my-1" data-toggle="tooltip" data-placement="top" title="Share this post"></i>
+                                      <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3" data-toggle="tooltip" data-placement="top" title="I like it"></i>
+
                                     </div>
-                              </div>
-        <!-- Card image -->
-                              <div class="view overlay">
-                                  <img class="card-img-top rounded-0" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/full page/2.jpg" alt="Card image cap">
-                                  <a href="#!">
-                                      <div class="mask rgba-white-slight"></div>
-                                  </a>
-                              </div>
-        <!-- Card content -->
-                            <div class="card-body">
-                                <div class="collapse-content">
-        <!-- Text -->
-                                    <p class="card-text collapse" id="collapseContent">Recently, we added several exotic new dishes to our restaurant menu. They come from countries such as Mexico, Argentina, and Spain. Come to us, have some delicious wine and enjoy our juicy meals from around the world.</p>
-        <!-- Button -->
-                                  <a class="btn btn-flat red-text p-1 my-1 mr-0 mml-1 collapsed" data-toggle="collapse" href="#collapseContent" aria-expanded="false" aria-controls="collapseContent"></a>
-                                  <i class="fas fa-share-alt text-muted float-right p-1 my-1" data-toggle="tooltip" data-placement="top" title="Share this post"></i>
-                                  <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3" data-toggle="tooltip" data-placement="top" title="I like it"></i>
+
+                                  </div>
 
                                 </div>
-
-                              </div>
-
+                            </div>
+                            <div class="col-1">
                             </div>
                         </div>
-                        <div class="col-1">
-                        </div>
-
-                        <!-- <div class = "col-lg-1">
-                        </div> -->
                     </div>
-                </div>
+                <%}%>
             </div>
         </div>
+        <%}%>
         <div id="contact" class="container-fluid contact-section">
           <div class="row">
             <div class="col-md-4">

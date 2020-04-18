@@ -101,7 +101,7 @@
                 </div>
             </div>
         </div>
-        <% if((Boolean)session.getAttribute("offers") == null){ %>
+        <% if((Boolean)session.getAttribute("haveDeals") == null){ %>
             <div class="container-fluid welcomeContainer">
 				<div class="jumbotron  welcomeBody">
 					<h1> Welcome to StunningDeals....</h1>
@@ -109,11 +109,17 @@
 					<h3>Enjoy Great Deals On Electronics, Furniture And Many More Things</h3>
 				</div>
 			</div>
-        <%} %>
+        <%} else {%>
 <!--My Deals -->
-	<% List<Offer> myDeals =  (List< Offer>) request.getAttribute("offers"); %>
-	
-        <div class = "container-fluid" id = "deals">
+	<% List<Offer> myDeals =  (List< Offer>) session.getAttribute("offers"); %>
+        <div class = "container-fluid my-deals" id = "deals">
+        	 <section >
+                <div class = "row  deal-header">
+                    <div class="col-8 deal-name ">
+                        <h2>My Deals</h2>
+                    </div>
+                </div>
+            </section>
 <!-- Card -->        	            
             <div class="row ">
            		<% for(Offer deal: myDeals) {%>
@@ -165,6 +171,7 @@
                 <%}%>
             </div>
         </div>
+        <%}%>
 	</body>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

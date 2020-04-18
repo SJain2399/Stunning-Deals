@@ -26,9 +26,15 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="container">
                     <ul class="navbar-nav mr-auto">
+                    	 <% if ((Boolean)session.getAttribute("loggedIn") == null) { %>
                         <li class="nav-item active">
                             <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
                         </li>
+                        <% } else { %>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="login-successful.jsp">Dashboard <span class="sr-only">(current)</span></a>
+                        </li>
+                        <% } %>
                         <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
